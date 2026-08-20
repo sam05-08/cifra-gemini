@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iCifra</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- HEADER / TOPO -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>iCifra</h1>
+                <p class="subtitle">Sua biblioteca musical minimalista</p>
+            </div>
+            <div class="search-bar">
+                <i data-lucide="search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar música ou artista...">
+            </div>
+        </header>
+
+        <!-- CONTEÚDO PRINCIPAL (ABAS) -->
+        <main class="app-main">
+            
+            <!-- ABA INÍCIO -->
+            <section id="tab-home" class="tab-content active">
+                <div class="section-title">
+                    <h2>Recomendadas</h2>
+                    <span>Explorar</span>
+                </div>
+                <div class="songs-grid" id="songsGrid">
+                    <!-- Preenchido via JavaScript -->
+                </div>
+            </section>
+
+            <!-- ABA FAVORITAS -->
+            <section id="tab-favorites" class="tab-content">
+                <div class="section-title">
+                    <h2>Favoritas</h2>
+                </div>
+                <div class="songs-grid" id="favoritesGrid">
+                    <!-- Preenchido via JavaScript -->
+                </div>
+            </section>
+
+            <!-- ABA AJUSTES -->
+            <section id="tab-settings" class="tab-content">
+                <div class="section-title">
+                    <h2>Configurações</h2>
+                </div>
+                <div class="settings-card">
+                    <div class="setting-item">
+                        <span>Tema Escuro Apple</span>
+                        <input type="checkbox" id="themeToggle" checked disabled>
+                    </div>
+                    <div class="setting-item">
+                        <span>Versão do App</span>
+                        <span class="setting-value">1.0.0 Pro</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VISUALIZADOR DA CIFRA (MODAL / TELA DE DETALHE) -->
+            <div id="cifraView" class="cifra-view">
+                <div class="cifra-header">
+                    <button class="icon-btn" id="backBtn"><i data-lucide="chevron-left"></i> Voltar</button>
+                    <div class="cifra-meta">
+                        <h2 id="viewSongTitle">Título</h2>
+                        <span id="viewSongArtist">Artista</span>
+                    </div>
+                    <button class="icon-btn" id="favViewBtn"><i data-lucide="heart"></i></button>
+                </div>
+
+                <!-- Barra de Ferramentas Funcionais -->
+                <div class="cifra-tools">
+                    <div class="tool-group">
+                        <label>Tom:</label>
+                        <button class="tool-pill" id="transposeDown">-</button>
+                        <span id="currentTone" style="font-weight: 600; min-width: 25px; text-align: center;">C</span>
+                        <button class="tool-pill" id="transposeUp">+</button>
+                    </div>
+                    <div class="tool-group">
+                        <label>Fonte:</label>
+                        <button class="tool-pill" id="fontDown">A-</button>
+                        <button class="tool-pill" id="fontUp">A+</button>
+                    </div>
+                    <div class="tool-group">
+                        <button class="tool-pill action-btn" id="autoScrollBtn">
+                            <i data-lucide="play"></i> Auto-scroll
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Corpo da Cifra -->
+                <div class="cifra-content-scroll" id="cifraScrollContainer">
+                    <pre id="cifraPreText"></pre>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- BARRA DE NAVEGAÇÃO INFERIOR -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-target="tab-home">
+                <i data-lucide="home"></i>
+                <span>Início</span>
+            </button>
+            <button class="nav-item" data-target="tab-favorites">
+                <i data-lucide="heart"></i>
+                <span>Favoritas</span>
+            </button>
+            <button class="nav-item" data-target="tab-settings">
+                <i data-lucide="settings"></i>
+                <span>Ajustes</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
